@@ -1,8 +1,8 @@
-function TodoItem() {
+function TodoItem(props) {
     return(
       <li>
-        <sap>V</sap>
-        <p>Llorar con la Llorona</p>
+        <sap>V </sap>
+        <p>{props.text}</p>
         <span>X</span>
       </li>
     );
