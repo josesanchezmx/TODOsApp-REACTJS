@@ -1,0 +1,46 @@
+.create-todo-button {
+    position: fixed;
+    bottom: 50px;
+    right: 150px;
+    width: 60px;
+    height: 60px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+    cursor: pointer; /* Cambiar el cursor a pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover para el botón */
+.create-todo-button:hover {
+    background-color: #2ecc71; /* Color más claro al pasar el cursor */
+    transform: scale(1.1); /* Aumentar el tamaño ligeramente */
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3); /* Aumentar la sombra */
+}
+
+/* Efecto clic */
+.create-todo-button:active {
+    transform: scale(0.95); /* Reducir ligeramente el tamaño al hacer clic */
+    background-color: #1e8449; /* Color más oscuro al hacer clic */
+}
+
+/* Efecto flotante animado */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Subir ligeramente */
+    }
+}
+
+.create-todo-button {
+    animation: float 3s ease-in-out infinite; /* Aplicar animación flotante */
+}

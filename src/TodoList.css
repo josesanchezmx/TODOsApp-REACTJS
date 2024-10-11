@@ -1,0 +1,14 @@
+.todo-list {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding por defecto */
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+.todo-list__item {
+    padding: 10px; /* Espaciado interno para cada item */
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre items */
+}
+
+.todo-list__item:last-child {
+    border-bottom: none; /* Elimina la línea del último item */
+}

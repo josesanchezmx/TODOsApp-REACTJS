@@ -1,0 +1,63 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%; /* Ajuste en el ancho del contenedor */
+    padding: 15px;
+    margin: 10px auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto hover */
+.todo-item:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.todo-item__check {
+    font-size: 22px;
+    color: #ddd; /* Color predeterminado para ítems incompletos */
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Color verde para la palomita cuando está activo */
+.todo-item__check--active {
+    color: #27ae60; /* Verde para ítems completados */
+}
+
+.todo-item__text {
+    flex-grow: 1;
+    color: #2c3e50;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Estilo para el texto completado */
+.todo-item__text--complete {
+    text-decoration: line-through;
+    color: #27ae60; /* Verde para ítems completados */
+}
+
+.todo-item__delete {
+    font-size: 22px;
+    color: #e74c3c;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Efectos hover */
+.todo-item__check:hover {
+    color: #2ecc71;
+}
+
+.todo-item__delete:hover {
+    color: #c0392b;
+}
+
