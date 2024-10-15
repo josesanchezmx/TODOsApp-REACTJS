@@ -1,22 +1,36 @@
-.todo-search__input {
-    width: 30%; /* Ocupa el 30% del ancho del contenedor */
-    padding: 10px; /* Espaciado interno */
-    margin: 10px auto; /* Margen superior e inferior y centrado */
-    text-align: center; /* Texto centrado */
-    font-size: 16px; /* Tamaño de la fuente */
-    border: 2px solid #2c3e50; /* Borde sólido */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    transition: border-color 0.3s ease; /* Animación para el borde */
-    display: block; /* Para que margin: auto funcione */
+.todo-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin: 10px auto;
 }
 
-.todo-search__input::placeholder {
-    color: #7f8c8d; /* Color del placeholder */
+.todo-search__input {
+    width: 100%; /* El input ocupa todo el ancho del contenedor */
+    padding: 10px 20px; /* Espacio a los lados */
+    padding-left: 40px; /* Espacio a la izquierda para que el ícono no interfiera */
+    text-align: center; /* Centrar el texto dentro del input */
+    font-size: 16px;
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.todo-search__icon {
+    position: absolute;
+    right: 10px; /* Colocación del ícono a la izquierda del input */
+    font-size: 20px;
+    color: #7f8c8d;
 }
 
 .todo-search__input:focus {
-    border-color: #27ae60; /* Cambia el color del borde al hacer foco */
-    outline: none; /* Elimina el contorno del navegador */
+    border-color: #27ae60;
+    outline: none;
 }
 
+.todo-search__input::placeholder {
+    color: #7f8c8d;
+}
