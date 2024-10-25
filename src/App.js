@@ -6,16 +6,29 @@ import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 
 /*  aprenderemos a renderizar este array */
-const defaultTodos = [ 
+/* const defaultTodos = [ 
   {text: 'Cortar Cebolla', completed: false},
   {text: 'Estudiar React.js', completed: true},
   {text: 'Ir al GYM a las 6', completed: true},
   {text: 'Meditar por la noche 10 minutos', completed: false},
   {text: 'Ir a por el chillon a la guarderia ', completed: false},
-];
+]; 
+  localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+  localStorage.removeItem('TODOS_V1') */
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos); // Se define el estado correctamente como defaultTodos
+  const localStorageTodos = localStorage.getItem('TODOS_V1')
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1',JSON.stringify([]));
+    parsedTodos = [];
+
+  }else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parsedTodos); // Se define el estado correctamente como defaultTodos
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -26,13 +39,20 @@ function App() {
   todo.text.toLowerCase().includes(searchValue.toLowerCase())
   ); 
 
+  // funcion para actualice el estado y al localstorage
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1',JSON.stringify(newTodos));
+
+    setTodos(newTodos);
+  } 
+
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(
     (todo) => todo.text === text
   );
   newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
   
   const deleteTodo = (text) => {
@@ -41,7 +61,7 @@ function App() {
     (todo) => todo.text === text
     );
       newTodos.splice(todoIndex, 1);
-      setTodos(newTodos);
+      saveTodos(newTodos);
   };
 
   return (
