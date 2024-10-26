@@ -3,7 +3,9 @@ import { AppUI } from './AppUI';
 import { useLocalStorage } from './useLocalStorage';
 
 /*  aprenderemos a renderizar este array */
-/* const defaultTodos = [ 
+
+ /*localStorage.removeItem('TODOS_V1')
+ const defaultTodos = [ 
   {text: 'Cortar Cebolla', completed: false},
   {text: 'Estudiar React.js', completed: true},
   {text: 'Ir al GYM a las 6', completed: true},
@@ -11,13 +13,16 @@ import { useLocalStorage } from './useLocalStorage';
   {text: 'Ir a por el chillon a la guarderia ', completed: false},
 ]; 
   localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
-  localStorage.removeItem('TODOS_V1') */
-
+  */
 
   
 function App() {
 
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []); // Se define el estado correctamente como defaultTodos
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,} = useLocalStorage('TODOS_V1', []); // Se define el estado correctamente como defaultTodos
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -47,6 +52,8 @@ function App() {
   };
   return(
     <AppUI
+    loading={loading}
+    error={error}
     completedTodos={completedTodos}
     totalTodos={totalTodos}
     searchValue={searchValue}
