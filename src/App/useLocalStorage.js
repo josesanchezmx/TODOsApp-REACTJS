@@ -1,49 +1,48 @@
-  import React from "react";
-  
-  // custom hooks
-  function useLocalStorage (itemName, initialValue) {
+import React from "react";
 
-    const [item, setItem] = React.useState(initialValue);
-    const [loading, setLoading] = React.useState(true);
-    const [error, setError] = React.useState(false);
+// Custom Hook
+function useLocalStorage(itemName, initialValue) {
+  const [item, setItem] = React.useState(initialValue);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
 
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
 
-    React.useEffect(() => {
-      setTimeout(() => {
-        try{
-          const localStorageItem = localStorage.getItem(itemName)
-  
-          let parsedItem;
-          
-          if (!localStorageItem) {
-            localStorage.setItem(itemName, JSON.stringify([initialValue]));
-            parsedItem = [initialValue];
-        
-          }else {
-            parsedItem = JSON.parse(localStorageItem);
-            setItem(parsedItem);
-          }
-          setLoading(false);
-        } catch (error){
-          setLoading(false)
-          setError(true);
+        if (!localStorageItem) {
+          localStorage.setItem(itemName, JSON.stringify([initialValue]));
+          parsedItem = [initialValue];
+          setItem(parsedItem); // Establecer el valor inicial
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+          setItem(parsedItem); // Cargar el valor existente
         }
-      }, 2000);
-    },[]);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        setError(true);
+      }
+    }, 2000); // Retraso de 3 segundos
 
-  // funcion para actualice el estado y al localstorage
+    // Limpiar el temporizador al desmontar
+    return () => clearTimeout(timer);
+  }, [itemName, initialValue]); // Incluir dependencias 
+
+  // Función para actualizar el estado y el localStorage
   const saveItem = (newItem) => {
     localStorage.setItem(itemName, JSON.stringify(newItem));
-  
     setItem(newItem);
-  }; 
+  };
 
   return {
     item,
     saveItem,
     loading,
     error,
-  }
-} 
+  };
+}
 
-export {useLocalStorage}
+export { useLocalStorage };

@@ -1,0 +1,50 @@
+.loadingTodo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%; /* Coincide con el ancho de .todo-item */
+    padding: 15px;
+    margin: 10px auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Iconos simulados para completar y eliminar */
+.LoadingTodo-completeIcon,
+.LoadingTodo-deleteIcon {
+    background: #e0e0e0; /* Gris suave y atractivo */
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    animation: pulsate 1.5s infinite;
+    display: inline-block;
+}
+
+/* Espaciado entre los elementos */
+.LoadingTodo-completeIcon {
+    margin-right: 15px;
+}
+
+.LoadingTodo-deleteIcon {
+    margin-left: 15px;
+}
+
+/* Texto simulado como una barra rectangular */
+.LoadingTodo-text {
+    background: #e0e0e0; /* Gris suave para la barra de texto */
+    width: 70%;
+    height: 18px;
+    border-radius: 4px;
+    animation: pulsate 1.5s infinite;
+    display: inline-block;
+}
+
+/* Animación de pulsación */
+@keyframes pulsate {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
