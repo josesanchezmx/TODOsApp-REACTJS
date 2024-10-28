@@ -7,10 +7,21 @@ function TodoCounter() {
     const {
         completedTodos, 
         totalTodos,
-    } = React.useContext(TodoContext)
+        searchedTodos, // Importamos searchedTodos del contexto
+    } = React.useContext(TodoContext);
 
-
-    if (completedTodos !== totalTodos) {
+    if (searchedTodos.length === 0 && totalTodos > 0) {
+        return (
+            <>
+                <p className="todo-counter__title">
+                    ¡Oops!
+                </p>
+                <p className="todo-counter__subtitle">
+                    El TODO que buscas no existe. Intenta con otro término. 🔍
+                </p>
+            </>
+        );
+    } else if (completedTodos !== totalTodos) {
         return (
             <>
                 <p className="todo-counter__title">
@@ -21,7 +32,7 @@ function TodoCounter() {
                 </p>
             </>
         );  
-    }else if(totalTodos === 0){
+    } else if (totalTodos === 0) {
         return (
             <>
                 <p className="todo-counter__title">
@@ -31,7 +42,7 @@ function TodoCounter() {
                     ¡Agrega algunos y comienza a cumplir tus metas! 🚀
                 </p>
             </>
-        )
+        );
     } else {
         return (
             <>
@@ -45,9 +56,9 @@ function TodoCounter() {
                     Ya no tienes nada pendiente 🙌😎
                 </p> */}
             </>
-
         );
     }
 }
 
 export { TodoCounter };
+
