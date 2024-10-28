@@ -1,9 +1,13 @@
 import React from 'react';
 import './TodoSearch.css';
+import { TodoContext } from '../TodoContext';
 import { FaSearch } from "react-icons/fa"; // Importamos el icono
 
-function TodoSearch({ searchValue, setSearchValue }) {
-    
+function TodoSearch() {
+    const {
+        searchValue, 
+        setSearchValue,
+    } = React.useContext(TodoContext)
     const placeholders = [
         "Cortar Cebolla",
         "Comprar pan",

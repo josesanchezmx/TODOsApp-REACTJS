@@ -13,8 +13,8 @@ function useLocalStorage(itemName, initialValue) {
         let parsedItem;
 
         if (!localStorageItem) {
-          localStorage.setItem(itemName, JSON.stringify([initialValue]));
-          parsedItem = [initialValue];
+          parsedItem = initialValue;
+          localStorage.setItem(itemName, JSON.stringify(parsedItem));
           setItem(parsedItem); // Establecer el valor inicial
         } else {
           parsedItem = JSON.parse(localStorageItem);
@@ -25,11 +25,11 @@ function useLocalStorage(itemName, initialValue) {
         setLoading(false);
         setError(true);
       }
-    }, 2000); // Retraso de 3 segundos
+    }, 2000); // Retraso de 2 segundos
 
     // Limpiar el temporizador al desmontar
     return () => clearTimeout(timer);
-  }, [itemName, initialValue]); // Incluir dependencias 
+  }, [itemName, initialValue]); // Incluir dependencias
 
   // Función para actualizar el estado y el localStorage
   const saveItem = (newItem) => {
