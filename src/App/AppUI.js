@@ -8,6 +8,7 @@ import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoContext } from '../TodoContext';
+import { Modal } from '../Modal';
 
 function  AppUI () {
 
@@ -17,6 +18,9 @@ function  AppUI () {
     searchedTodos,
     completeTodo,
     deleteTodo,
+    openModal,
+    setOpenModal,
+
     } = React.useContext(TodoContext);
     return (
         <React.Fragment>
@@ -43,9 +47,14 @@ function  AppUI () {
                           onDelete={() => deleteTodo(todo.text)}/>
               ))}
                </TodoList>
-        <CreateTodoButton/>
-
-        </React.Fragment>
+               <CreateTodoButton
+                  setOpenModal={setOpenModal}/>
+                {openModal && (
+                <Modal>
+                  La funcionalidad de agregar TODO
+                </Modal>
+              )}
+              </React.Fragment>
     );
 }
 

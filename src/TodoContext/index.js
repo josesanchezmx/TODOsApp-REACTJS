@@ -11,6 +11,7 @@ function TodoProvider ({children}) {
     loading,
     error,} = useLocalStorage('TODOS_V1', []); // Se define el estado correctamente como defaultTodos
   const [searchValue, setSearchValue] = React.useState('');
+  const [openModal, setOpenModal] = React.useState(false);
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length; // Se ajusta para contar el total de todos cuando es un array se usa la propiedad length para contar todos los  elemetos de ese array
@@ -49,6 +50,8 @@ function TodoProvider ({children}) {
             searchedTodos,
             completeTodo,
             deleteTodo,
+            openModal,
+            setOpenModal,
         }}>
             {children}
         </TodoContext.Provider>

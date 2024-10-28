@@ -1,15 +1,14 @@
 import './CreateTodoButton.css';
 import { MdOutlineAddTask } from "react-icons/md";
 
-function CreateTodoButton() {
+function CreateTodoButton({setOpenModal}) {
     return (
         <button className="create-todo-button"
         onClick={
-            (event) => {
-                console.log('le diste click')
+            () => {
+              setOpenModal(state => !state);
             }
-                
-        }
+          }
         ><MdOutlineAddTask className="create-todo-icon" /></button>
     );
 }
