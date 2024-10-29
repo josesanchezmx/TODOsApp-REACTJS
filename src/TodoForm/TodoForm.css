@@ -1,0 +1,88 @@
+/* Estilo general del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9; /* Fondo suave y claro */
+    border-radius: 8px;
+    padding: 30px; /* Aumentar el espaciado interno */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 20px; /* Espacio alrededor del formulario */
+    max-width: 500px; /* Ancho máximo del formulario */
+    width: 100%; /* Ancho del formulario en porcentaje */
+    text-align: center;
+}
+
+/* Estilo para la etiqueta */
+label {
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 15px; /* Espaciado inferior */
+    color: #333; /* Color del texto */
+}
+
+/* Estilo para el textarea */
+textarea {
+    resize: none; /* Deshabilita el cambio de tamaño */
+    height: 150px; /* Aumentar altura ajustada */
+    border: 2px solid #007bff; /* Borde azul más oscuro */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 20px; /* Espaciado inferior */
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #495057; /* Color del texto */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    background-color: #ffffff; /* Fondo blanco */
+    text-align: center;
+}
+
+/* Efecto en textarea al enfocar */
+textarea:focus {
+    border-color: #0056b3; /* Cambia el color del borde al enfocar */
+    outline: none; /* Quita el contorno por defecto */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra suave */
+}
+
+/* Estilo para el contenedor de botones */
+.TodoForm-buttonContainer {
+    display: flex;
+    justify-content: space-between; /* Espacio entre botones */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 15px; /* Espacio superior para separar de textarea */
+}
+
+/* Estilo para los botones */
+.TodoForm-button {
+    padding: 20px 60px; /* Aumentar el espaciado interno para hacer los botones más grandes */
+    border: none; /* Sin borde */
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 1.1rem; /* Aumentar el tamaño de fuente para mayor visibilidad */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+
+/* Estilo para el botón de cancelar */
+.TodoForm-button--cancel {
+    background-color: #dc3545; /* Color de fondo rojo */
+    color: white; /* Color del texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Efecto al pasar el cursor sobre el botón de cancelar */
+.TodoForm-button--cancel:hover {
+    background-color: #c82333; /* Color más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+/* Estilo para el botón de agregar */
+.TodoForm-button--add {
+    background-color: #28a745; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Efecto al pasar el cursor sobre el botón de agregar */
+.TodoForm-button--add:hover {
+    background-color: #218838; /* Color más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
